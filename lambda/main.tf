@@ -1,7 +1,7 @@
 locals {
   app_build = "${path.module}/build"
-  s3_bucket = "${var.app_name}-${var.env}-${random_id.id.dec}"
-  s3_key    = "${var.app_name}-${random_string.str.result}"
+  s3_bucket = "${var.app_name}-${var.env}-${random_string.str.result}"
+  s3_key    = "${var.app_name}-${random_id.id.dec}"
 }
 resource "random_id" "id" {
   byte_length = 4

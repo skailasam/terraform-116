@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     logger.info("## API REQUEST\r" + json.dumps(event))
     sqs = boto3.client("sqs")
     sqs_url = os.environ["sqs_url"]
-    if event.has_key("body"):
+    if "body" in event:
         try:
             sqs_response = sqs.send_message(
                 QueueUrl=sqs_url, MessageBody=(event["body"])

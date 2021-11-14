@@ -12,7 +12,7 @@ def lambda_handler(event, context):
     - bucket: S3 event bucket
     - key: S3 event key
     """
-    if event["Records"][0].has_key("s3"):
+    if "s3" in event["Records"][0]:
         s3 = dict()
         s3["key"] = urllib.parse.unquote_plus(
             event["Records"][0]["s3"]["object"]["key"], encoding="utf-8"
